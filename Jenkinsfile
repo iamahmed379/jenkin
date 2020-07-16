@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-       DOCKER_HUB_REPO = "irfanahmed379/irfan"
+       DOCKER_HUB_REPO = "irfanahmed379/jenkin"
         CONTAINER_NAME = "flask-container"
         STUB_VALUE = "200"
     }
@@ -20,9 +20,9 @@ pipeline {
                 sh 'docker image build -t $DOCKER_HUB_REPO:latest .'
                 sh 'docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
 
-                //  Pushing Image to Repository
-                sh 'docker push irfanahmed379/irfan:$BUILD_NUMBER'
-                sh 'docker push irfanahmed379/irfan:latest'
+                 stage('Push image') {
+        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
+        bat "docker push devopsglobalmedia/teamcitydocker:build"
                 
                 echo "Image built and pushed to repository"
             }
