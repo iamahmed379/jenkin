@@ -21,8 +21,10 @@ pipeline {
                 sh 'docker image tag $DOCKER_HUB_REPO:4 $DOCKER_HUB_REPO:$BUILD_NUMBER'
 
                 //  Pushing Image to Repository
-                sh 'docker push irfanahmed379/irfan:$BUILD_NUMBER'
-                sh 'docker push irfanahmed379/irfan:4'
+                withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ])
+                bat "docker push devopsglobalmedia/teamcitydocker:build"
+                //sh 'docker push irfanahmed379/irfan:$BUILD_NUMBER'
+                //sh 'docker push irfanahmed379/irfan:4'
                 
                 echo "Image built and pushed to repository"
             }
