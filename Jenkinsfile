@@ -22,7 +22,7 @@ pipeline {
 
                 //  Pushing Image to Repository
                 sh 'docker push irfanahmed379/jenkin:$BUILD_NUMBER'
-                sh 'docker push irfanahmed379/jenkin:latest'
+                sh 'docker push irfanahmed379/jenkin:latestone'
                 
                 echo "Image built and pushed to repository"
             }
