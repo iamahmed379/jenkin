@@ -21,7 +21,7 @@ pipeline {
                 sh 'docker image tag $DOCKER_HUB_REPO:4 $DOCKER_HUB_REPO:$BUILD_NUMBER'
 
                 //  Pushing Image to Repository
-                withDockerRegistry([ irfanahmed379: "irfanahmed379", https://hub.docker.com/: "" ])
+                withDockerRegistry([ credentialsId: "irfanahmed379 Avaya@1209", url: "" ])
                 bat "docker push irfanahmed379/irfan:build"
                 //sh 'docker push irfanahmed379/irfan:$BUILD_NUMBER'
                 //sh 'docker push irfanahmed379/irfan:4'
