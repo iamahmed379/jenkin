@@ -22,7 +22,7 @@ pipeline {
 
                 //  Pushing Image to Repository
                 withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ])
-                bat "docker push devopsglobalmedia/teamcitydocker:build"
+                bat "docker push irfanahmed379/irfan:build"
                 //sh 'docker push irfanahmed379/irfan:$BUILD_NUMBER'
                 //sh 'docker push irfanahmed379/irfan:4'
                 
