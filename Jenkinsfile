@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HUB_REPO = "irfanahmed379/jenkin/"
+        DOCKER_HUB_REPO = "irfanahmed379/jenkin"
         CONTAINER_NAME = "flask-container"
         STUB_VALUE = "200"
     }
