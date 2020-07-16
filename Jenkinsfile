@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HUB_REPO = "irfanahmed379 /irfan"
+        DOCKER_HUB_REPO = "irfanahmed379/irfan"
         CONTAINER_NAME = "flask-container"
         STUB_VALUE = "200"
     }
@@ -21,8 +21,8 @@ pipeline {
                 sh 'docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
 
                 //  Pushing Image to Repository
-                sh 'docker push irfanahmed379 /irfan:$BUILD_NUMBER'
-                sh 'docker push irfanahmed379 /irfan:latest'
+                sh 'docker push irfanahmed379/irfan:$BUILD_NUMBER'
+                sh 'docker push irfanahmed379/irfan:latest'
                 
                 echo "Image built and pushed to repository"
             }
